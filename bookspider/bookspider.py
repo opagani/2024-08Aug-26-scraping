@@ -6,10 +6,7 @@ class BookSpider(scrapy.Spider):
 
     def parse(self, response):
 
-
-        for one_quote in response.css('div.quote'):
-            # grab the item with a "text" class (i.e., .text)
-            # grab the text from within the text (i.e., ::text)
+        for one_quote in response.css('article.product_pod'):
             quote_text = one_quote.css('.text::text').extract_first()
             author_name = one_quote.css('.author::text').extract_first()
 
