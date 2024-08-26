@@ -10,9 +10,7 @@ class BookSpider(scrapy.Spider):
 
 
             title_text = one_book.css('h3 > a').extract_first()
-            # author_name = one_quote.css('.author::text').extract_first()
+            price = one_book.css('p.price-color').extract_first()
 
-            # yield {'text': quote_text,
-            #        'author':author_name}
-
-            yield {'title':title_text}
+            yield {'title':title_text,
+                   'price':price}
