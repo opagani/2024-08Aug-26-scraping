@@ -6,7 +6,9 @@ class BookSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        for one_book in response.css('article.product_pod'):
+        for one_book in response.css('li.col-xs-6:nth-child(1) > article:nth-child(1) > h3:nth-child(3) > a:nth-child(1)'):
+
+
             title_text = one_book.css('a').extract_first()
             # author_name = one_quote.css('.author::text').extract_first()
 
