@@ -9,4 +9,8 @@ class QuoteSpider(scrapy.Spider):
         # response, using CSS selectors.
 
         for one_quote in response.css('div.quote'):
-            yield one_quote
+            # grab the item with a "text" class (i.e., .text)
+            # grab the text from within the text (i.e., ::text)
+            quote_text = one_quote.css('.text::text')
+
+            yield quote_text
