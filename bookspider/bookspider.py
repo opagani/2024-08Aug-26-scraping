@@ -6,11 +6,11 @@ class BookSpider(scrapy.Spider):
 
     def parse(self, response):
 
-        for one_quote in response.css('article.product_pod'):
-            # quote_text = one_quote.css('.text::text').extract_first()
+        for one_book in response.css('article.product_pod'):
+            title_text = one_book.css('a').extract_first()
             # author_name = one_quote.css('.author::text').extract_first()
 
             # yield {'text': quote_text,
             #        'author':author_name}
 
-            yield {}
+            yield {'title':title_text}
