@@ -12,5 +12,7 @@ class QuoteSpider(scrapy.Spider):
             # grab the item with a "text" class (i.e., .text)
             # grab the text from within the text (i.e., ::text)
             quote_text = one_quote.css('.text::text').extract_first()
+            author_name = one_quote.css('.author::text').extract_first()
 
-            yield {'text': quote_text}
+            yield {'text': quote_text,
+                   'author':author_name}
