@@ -8,7 +8,6 @@ class BookSpider(scrapy.Spider):
 
         for one_book in response.css('article.product_pod'):
 
-
             title_text = one_book.css('h3 > a::text').extract_first()
             price = one_book.css('p.price_color::text').extract_first()
 
