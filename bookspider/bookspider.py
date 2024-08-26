@@ -16,7 +16,7 @@ class BookSpider(scrapy.Spider):
                    'price':price}
 
         # Find the "next" button, and yield that for additional scraping
-        next_page = response.css('.next > a:nth-child(1)').extract_first()
+        next_page = response.css('.next > a:nth-child(1)::attr("href")').extract_first()
 
         if next_page:   # if there is a next_page button...
             yield scrapy.Request(response.urljoin(next_page))
