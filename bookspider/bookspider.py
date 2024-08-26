@@ -9,7 +9,7 @@ class BookSpider(scrapy.Spider):
         for one_book in response.css('article.product_pod'):
 
 
-            title_text = one_book.css('h3 > a').extract_first().text()
+            title_text = one_book.css('h3 > a').extract_first()
             # author_name = one_quote.css('.author::text').extract_first()
 
             # yield {'text': quote_text,
