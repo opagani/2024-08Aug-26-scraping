@@ -13,4 +13,4 @@ class QuoteSpider(scrapy.Spider):
             # grab the text from within the text (i.e., ::text)
             quote_text = one_quote.css('.text::text')
 
-            yield quote_text
+            yield {'text': quote_text}
